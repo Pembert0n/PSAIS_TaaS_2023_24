@@ -1,0 +1,2 @@
+Transcription unterstützt noch nicht alle Zeichen
+Transcription läuft lokal auf Windows, muss noch für Docker angepasst werden
