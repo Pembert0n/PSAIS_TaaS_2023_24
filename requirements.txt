@@ -9,5 +9,27 @@ Chocolatey
     https://chocolatey.org/
         choco install ffmpeg
 
+pydub
+    pip install pydub
+pyAudioAnalysis
+    pip install pyAudioAnalysis
+scipy
+    pip install scipy
+sklearn
+    pip install scikit-learn
+hmmlearn
+    pip install hmmlearn
+matplotlib
+    pip install matplotlib
+eyed3
+    pip install eyed3
+imblearn
+    pip install imbalanced-learn
+plotly
+    pip install plotly
+pyAudioDiarization
+    pip install pyAudioDiarization
+
+
 Video für Hilfsbedürftige
     https://youtu.be/ABFqbY_rmEk?si=MrFezADsTYY3vzG2
