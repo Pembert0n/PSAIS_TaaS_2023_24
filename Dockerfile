@@ -1,12 +1,13 @@
 FROM python:3.11.6
 
 COPY package.json /app/
+COPY main.py /app/
 
 WORKDIR /app
 
 RUN pip3 install torch torchvision torchaudio
 RUN pip install openai-whisper
-RUN choco install ffmpeg 
+RUN apt-get -y update && apt-get -y upgrade && apt-get install -y ffmpeg
 RUN pip install pydub
 RUN pip install pyAudioAnalysis
 RUN pip install scipy
@@ -16,7 +17,7 @@ RUN pip install matplotlib
 RUN pip install eyed3
 RUN pip install imbalanced-learn
 RUN pip install plotly
-RUN pip install pyAudioDiarization
+RUN pip install pyAudioAnalysis
 
 
 
