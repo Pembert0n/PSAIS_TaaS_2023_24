@@ -1,11 +1,24 @@
-FROM python:latest
+FROM python:3.11.6
 
 COPY package.json /app/
-COPY *source dest*
 
 WORKDIR /app
 
-RUN *command to start services*
+RUN pip3 install torch torchvision torchaudio
+RUN pip install openai-whisper
+RUN choco install ffmpeg 
+RUN pip install pydub
+RUN pip install pyAudioAnalysis
+RUN pip install scipy
+RUN pip install scikit-learn
+RUN pip install hmmlearn
+RUN pip install matplotlib
+RUN pip install eyed3
+RUN pip install imbalanced-learn
+RUN pip install plotly
+RUN pip install pyAudioDiarization
 
-CMD [*final command to start the app*]
+
+
+CMD ["main.py"]
 

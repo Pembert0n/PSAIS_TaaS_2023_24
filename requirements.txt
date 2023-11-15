@@ -8,6 +8,7 @@ openai-whisper
 Chocolatey
     https://chocolatey.org/
         choco install ffmpeg
+        sudo apt update && sudo apt install ffmpeg
 
 pydub
     pip install pydub
@@ -26,7 +27,7 @@ eyed3
 imblearn
     pip install imbalanced-learn
 plotly
-    pip install plotly
+    pip install imbalanced-learn
 pyAudioDiarization
     pip install pyAudioDiarization
 

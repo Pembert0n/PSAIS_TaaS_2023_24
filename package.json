@@ -2,6 +2,18 @@
     "name": "TaaS",
     "version": "1.0",
     "dependencies": {
-        
+        "torch torchvision torchaudio": "",
+        "openai-whisper" : "",
+        "ffmpeg": "",
+        "pydub" : "",
+        "pyAudioAnalysis" : "",
+        "scipy" : "",
+        "scikit-learn" : "",
+        "hmmlearn" : "",
+        "matplotlib" : "",
+        "eyed3" : "",
+        "imbalanced-learn" : "",
+        "pyAudioDiarization" : ""
+
     }
 }
