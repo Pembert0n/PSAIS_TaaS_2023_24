@@ -2,6 +2,8 @@ FROM python:3.11.6
 
 COPY package.json /app/
 COPY main.py /app/
+COPY podcast/knowledge_science_ep1.mp3 /app/podcast/
+
 
 WORKDIR /app
 
@@ -21,5 +23,6 @@ RUN pip install pyAudioAnalysis
 
 
 
-CMD ["main.py"]
+CMD ["python", "main.py"]
+
 
