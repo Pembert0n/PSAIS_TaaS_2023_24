@@ -4,17 +4,10 @@ import json
 #code ausschnitt geliehen von https://github.com/linto-ai/whisper-timestamped?tab=readme-ov-file#installation
 audio = whisper.load_audio("podcast/knowledge_science_ep1.mp3")
 
-model = whisper.load_model("tiny", device="cpu")
+model = whisper.load_model("base", device="cpu")
 
-result = whisper.transcribe(model, audio, language="de")
+result = whisper.transcribe(model, audio)
 
-
-print(json.dumps(result, indent = 2, ensure_ascii = False))
-
-
-# model = whisper.load_model("base")
-# result = model.transcribe("podcast/knowledge_science_ep1.mp3")
-
-# with open("transcription.txt", "w") as f:
-#     f.write(result["text"])
-# print("done")
+with open("transcription.txt", "w", encoding='utf-8') as f:
+    f.write(json.dumps(result, indent=2, ensure_ascii=False))
+print("done")

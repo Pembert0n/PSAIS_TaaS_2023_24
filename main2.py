@@ -1,35 +1,37 @@
-from pydub import AudioSegment
+import whisper as whisper_OG
+import whisper_timestamped as whisper
+import json
+import glob
+import os
 
-# Lade das Whisper-Modell und führe die Transkription durch
-import whisper
-model = whisper.load_model("base")
-result = model.transcribe("podcast/knowledge_science_ep1.mp3")
-transcription_text = result["text"]
+# Muster für die Dateinamen der Podcast-Folgen
+file_pattern = "podcast/knowledge_science_ep*.mp3"
+output_folder = "transcriptions/"
 
-# Lade die Audiodatei
-audio_file = "podcast/knowledge_science_ep1.mp3"  # Passe den Pfad zur Audiodatei an
-audio = AudioSegment.from_file(audio_file)
+# Laden des Modells außerhalb der Schleife, wenn es für alle Folgen gleich bleibt
+model = whisper.load_model("base", device="cpu")
 
-# Erzeuge eine Instanz der Sprecherdiarization
-diarization = SpeakerDiarization()
+# Überprüfen und Erstellen des Ordners für die Transkriptionsdateien, falls er nicht vorhanden ist
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
 
-# Führe die Sprechererkennung durch
-results = diarization.detect_speakers(audio_file)
+# Durchsuchen nach allen passenden Dateien im Ordner
+files = glob.glob(file_pattern)
 
-# Erhalte die Sprecherwechsel und die dazugehörigen Zeitstempel
-speaker_changes = results['speaker_changes']
+for file_path in files:
+    # Laden der Audio-Datei
+    audio = whisper.load_audio(file_path)
+    
+    # Extrahieren des Dateinamens ohne den Pfad und die Dateierweiterung
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    
+    # Transkription für jede Datei durchführen
+    result = whisper.transcribe(model, audio)
+    
+    # Schreiben der Transkription in eine Datei mit dem entsprechenden Dateinamen
+    output_file = os.path.join(output_folder, f"{file_name}_transcription.txt")
+    with open(output_file, "w", encoding='utf-8') as f:
+        f.write(json.dumps(result, indent=2, ensure_ascii=False))
+    print(f"Transkription für {file_name} abgeschlossen.")
 
-# Erstelle Zeitstempel pro Sprecherwechsel
-timestamps = []
-for i in range(len(speaker_changes) - 1):
-    start_time = speaker_changes[i]
-    end_time = speaker_changes[i + 1]
-    sentence = transcription_text[start_time:end_time]
-    timestamps.append(f"{start_time/1000:.2f} - {end_time/1000:.2f}: {sentence}")
-
-# Speichere die Transkription mit Zeitstempeln pro Sprecherwechsel in einer Datei
-with open("transcription_with_speaker_timestamps.txt", "w") as f:
-    for timestamp in timestamps:
-        f.write(timestamp + "\n")
-
-print("done")
+print("Alle Transkriptionen abgeschlossen.")

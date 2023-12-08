@@ -36,3 +36,7 @@ pyAudioDiarization
 
 Video für Hilfsbedürftige
     https://youtu.be/ABFqbY_rmEk?si=MrFezADsTYY3vzG2
+
+    Podcast download
+    https://github.com/lightpohl/podcast-dl
+    https://podcastindex.org/podcast/1383759
