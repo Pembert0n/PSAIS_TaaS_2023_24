@@ -10,6 +10,8 @@ Chocolatey
         choco install ffmpeg
         sudo apt update && sudo apt install ffmpeg
 
+Whisper mit Timestamps
+https://github.com/linto-ai/whisper-timestamped?tab=readme-ov-file#installation
 pydub
     pip install pydub
 pyAudioAnalysis
