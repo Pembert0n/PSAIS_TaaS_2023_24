@@ -1,0 +1,8 @@
+#For colum based designs (wahrscheinlich nichts für uns)
+
+from pymilvus import utility
+task_id = utility.do_bulk_insert(
+    collection_name="book",
+    partition_name="2022",
+    files=["book_id.npy", "word_count.npy", "book_intro.npy", "book_props.npy"]
+)

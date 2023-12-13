@@ -1,0 +1,16 @@
+#Joa für text halt
+
+import string
+import nltk
+nltk.download('punkt')
+
+def preprocess_text(text_file):
+    with open(text_file, 'r') as file:
+        text = file.read().replace('\n', '')
+        text = text.lower()
+        text = text.translate(str.maketrans('', '', string.punctuation))
+        tokens = nltk.word_tokenize(text)
+        return tokens
+
+text_file = 'transcription.txt'
+text_data = preprocess_text(text_file)
