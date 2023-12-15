@@ -21,7 +21,7 @@ for file_path in files:
     
     result = whisper.transcribe(model, audio)
     
-    output_file = os.path.join(output_folder, f"{file_name}_transcription.txt")
+    output_file = os.path.join(output_folder, f"{file_name}_transcription.json")
     with open(output_file, "w", encoding='utf-8') as f:
         f.write(json.dumps(result, indent=2, ensure_ascii=False))
     print(f"Transkription für {file_name} abgeschlossen.")

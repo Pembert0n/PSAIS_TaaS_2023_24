@@ -1,14 +1,15 @@
 FROM python:3.11.6
 
 COPY package.json /app/
-COPY main.py /app/
-COPY podcast/knowledge_science_ep1.mp3 /app/podcast/
+COPY main2.py /app/
+COPY podcast/* /app/podcast/
 
 
 WORKDIR /app
 
 RUN pip3 install torch torchvision torchaudio
 RUN pip install openai-whisper
+RUN pip3 install whisper-timestamped
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y ffmpeg
 RUN pip install pydub
 RUN pip install pyAudioAnalysis
@@ -23,6 +24,6 @@ RUN pip install pyAudioAnalysis
 
 
 
-CMD ["python", "main.py"]
+CMD ["python", "main2.py"]
 
 

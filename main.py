@@ -8,6 +8,6 @@ model = whisper.load_model("base", device="cpu")
 
 result = whisper.transcribe(model, audio)
 
-with open("transcription.txt", "w", encoding='utf-8') as f:
+with open("transcription.json", "w", encoding='utf-8') as f:
     f.write(json.dumps(result, indent=2, ensure_ascii=False))
 print("done")
