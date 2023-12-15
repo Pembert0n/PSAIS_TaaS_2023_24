@@ -1,4 +1,5 @@
 #For Row based design (transcription.txt ist zwar keine json aber das ist wahrscheinlich das passende)
+#wir können das von txt auf json ohne probleme ändern --suphi
 
 from pymilvus import utility
 task_id = utility.do_bulk_insert(
