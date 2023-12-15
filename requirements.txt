@@ -12,6 +12,7 @@ Chocolatey
 
 Whisper mit Timestamps
 https://github.com/linto-ai/whisper-timestamped?tab=readme-ov-file#installation
+    pip3 install whisper-timestamped
 pydub
     pip install pydub
 pyAudioAnalysis
@@ -40,3 +41,5 @@ Video für Hilfsbedürftige
     Podcast download
     https://github.com/lightpohl/podcast-dl
     https://podcastindex.org/podcast/1383759
+
+docker build -t taas_1 .
