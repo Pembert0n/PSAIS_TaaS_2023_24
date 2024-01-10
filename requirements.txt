@@ -33,7 +33,8 @@ plotly
     pip install imbalanced-learn
 pyAudioDiarization
     pip install pyAudioDiarization
-
+pymilvus
+    pip install pymilvus==2.3.4
 
 Video für Hilfsbedürftige
     https://youtu.be/ABFqbY_rmEk?si=MrFezADsTYY3vzG2
