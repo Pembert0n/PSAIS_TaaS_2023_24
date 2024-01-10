@@ -3,7 +3,7 @@ FROM python:3.11.6
 COPY package.json /app/
 COPY main2.py /app/
 COPY podcast/* /app/podcast/
-
+COPY docker-compose.yml /app/
 
 WORKDIR /app
 
@@ -21,6 +21,7 @@ RUN pip install eyed3
 RUN pip install imbalanced-learn
 RUN pip install plotly
 RUN pip install pyAudioAnalysis
+RUN pip install pymilvus==2.3.4
 
 
 
