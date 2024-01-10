@@ -22,7 +22,7 @@ RUN pip install eyed3
 RUN pip install imbalanced-learn
 RUN pip install plotly
 RUN pip install pyAudioAnalysis
-RUN pip install pymilvus==2.3.4
+RUN pip install pymilvus==2.2.0
 
 
 
