@@ -3,6 +3,10 @@ import glob
 import os
 import whisper as whisper_OG
 import whisper_timestamped as whisper
+from milvus_db import create_milvus_database
+
+if __name__ == "__main__":
+    create_milvus_database()
 
 file_pattern = "podcast/knowledge_science_ep*.mp3"
 output_folder = "transcriptions/"
