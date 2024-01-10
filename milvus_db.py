@@ -2,7 +2,7 @@ from pymilvus import connections, db
 
 def create_milvus_database():
     try:
-        conn = connections.connect(host="milvus", port=19530)
+        conn = connections.connect(host="localhost", port=19530)
         # Host sollte "milvus" sein, um auf den Docker-Container zuzugreifen,
         # falls Sie diesen im selben Docker-Netzwerk ausführen. Ansonsten ändern Sie den Host entsprechend.
 
