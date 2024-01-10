@@ -14,6 +14,8 @@ if not os.path.exists(output_folder):
 
 files = glob.glob(file_pattern)
 
+filenames_list = []
+
 for file_path in files:
     audio = whisper.load_audio(file_path)
     
@@ -24,6 +26,7 @@ for file_path in files:
     output_file = os.path.join(output_folder, f"{file_name}_transcription.json")
     with open(output_file, "w", encoding='utf-8') as f:
         f.write(json.dumps(result, indent=2, ensure_ascii=False))
+    filenames_list.add(file_name)
     print(f"Transkription für {file_name} abgeschlossen.")
 
 print("Alle Transkriptionen abgeschlossen.")
