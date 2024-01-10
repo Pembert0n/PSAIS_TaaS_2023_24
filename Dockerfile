@@ -4,6 +4,7 @@ COPY package.json /app/
 COPY main2.py /app/
 COPY podcast/* /app/podcast/
 COPY docker-compose.yml /app/
+COPY milvus_db.py /app/
 
 WORKDIR /app
 
