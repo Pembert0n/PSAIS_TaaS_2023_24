@@ -1,0 +1,2 @@
+environment: pip install -U discord.py 
+start the bot: python bot.py 
